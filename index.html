@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Приход святой Троицы</title><!-- ✏️ название во вкладке браузера -->
+  <meta name="description" content="Римско-католический приход святой Троицы. Расписание богослужений, новости, слово дня.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ====================================================
+     КАК РЕДАКТИРОВАТЬ
+     Ищи пометки ✏️ — там то, что нужно менять.
+     Фото кладёшь в папку images/ и пишешь имя файла.
+     Цвета и шрифты — в начале файла style.css.
+     Слово дня и размышления — в файле script.js.
+     ==================================================== -->
+
+<!-- ============ ШАПКА ============ -->
+<header class="topbar">
+  <a class="brand" href="#top">
+    <img class="brand-logo" src="images/logo.png" alt="" onerror="this.style.display='none'"><!-- ✏️ логотип: images/logo.png -->
+    <span>Приход святой Троицы</span><!-- ✏️ название -->
+  </a>
+  <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Открыть меню">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="menu" class="menu">
+    <!-- ✏️ пункты меню: текст между <a> и </a>, адрес в href -->
+    <a href="#word">Слово дня</a>
+    <a href="#schedule">Богослужения</a>
+    <a href="#news">Новости</a>
+    <a href="#vatican">Ватикан</a>
+    <a href="#library">Библиотека</a>
+    <a href="#about">О нас</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ ГЛАВНЫЙ ЭКРАН: ФОТО + ДЕВИЗ ============ -->
+  <section class="hero" style="--photo: url('images/hram.jpg')"><!-- ✏️ фото храма: images/hram.jpg -->
+    <div class="hero-inner">
+      <p class="hero-motto">Милосердие Господа буду воспевать всегда</p><!-- ✏️ девиз -->
+      <p class="hero-source">Пс 88:2</p><!-- ✏️ источник или удалить строку -->
+    </div>
+  </section>
+
+  <!-- ============ СЛОВО ДНЯ ============ -->
+  <section id="word" class="word">
+    <div class="wrap">
+      <p class="word-date" id="word-date"></p>
+      <h2 class="word-ref" id="word-ref">Слово дня</h2>
+      <p class="word-text" id="word-text"></p>
+      <div class="word-note" id="word-note" hidden>
+        <p class="word-note-title">Размышление священника</p>
+        <p id="word-note-text"></p>
+        <p class="word-note-author" id="word-note-author"></p>
+      </div>
+      <!-- ✏️ ссылка на чтения дня: вставь точный адрес в href -->
+      <a class="link-quiet" href="#" target="_blank" rel="noopener">Все чтения дня на Vatican News</a>
+    </div>
+  </section>
+
+  <!-- ============ БЫСТРЫЕ КНОПКИ ============ -->
+  <section id="library" class="quick">
+    <div class="wrap">
+      <h2 class="visually-hidden">Быстрые ссылки</h2>
+      <div class="quick-grid">
+        <!-- ✏️ у каждой кнопки: href = адрес, текст = подпись. Лишнюю кнопку можно удалить целиком (от <a до </a>) -->
+        <a class="btn" href="#" target="_blank" rel="noopener">Библия</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">Катехизис</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">Каноническое право</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">Библиотека</a>
+        <a class="btn btn-gold" href="#" target="_blank" rel="noopener">Радио Ватикана</a>
+        <a class="btn btn-gold" href="#vatican">Вести Ватикана</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ БЛИЖАЙШИЕ БОГОСЛУЖЕНИЯ ============ -->
+  <section id="schedule" class="block">
+    <div class="wrap">
+      <h2>Богослужения</h2>
+      <ul class="schedule">
+        <!-- ✏️ строка = одна служба. Копируй <li>…</li> чтобы добавить, удаляй чтобы убрать -->
+        <li><span class="when">Воскресенье</span><span class="time">10:00</span><span class="what">Святая Месса</span></li>
+        <li><span class="when">Будни</span><span class="time">18:00</span><span class="what">Святая Месса</span></li>
+        <li><span class="when">Суббота</span><span class="time">17:00</span><span class="what">Исповедь</span></li>
+      </ul>
+
+      <!-- ✏️ КАЛЕНДАРЬ: сюда вставляется код встраивания из Google Календаря
+           (Настройки календаря → Интеграция календаря → Код для встраивания).
+           Пока тут пустая рамка. Код <iframe …></iframe> вставь вместо div ниже. -->
+      <div class="calendar-slot">Здесь будет календарь событий прихода</div>
+    </div>
+  </section>
+
+  <!-- ============ НОВОСТИ ПРИХОДА ============ -->
+  <section id="news" class="block block-alt">
+    <div class="wrap">
+      <h2>Новости прихода</h2>
+      <div class="cards">
+        <!-- ✏️ карточка новости. Копируй целиком <article>…</article>, чтобы добавить новую -->
+        <article class="card">
+          <div class="card-img" style="--photo: url('images/news1.jpg')"></div><!-- ✏️ фото: images/news1.jpg -->
+          <div class="card-body">
+            <p class="card-date">00 месяца 0000</p>
+            <h3>Заголовок новости</h3>
+            <p>Короткий текст новости в одно-два предложения.</p>
+            <a class="link-quiet" href="#">Читать дальше</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img" style="--photo: url('images/news2.jpg')"></div>
+          <div class="card-body">
+            <p class="card-date">00 месяца 0000</p>
+            <h3>Заголовок новости</h3>
+            <p>Короткий текст новости в одно-два предложения.</p>
+            <a class="link-quiet" href="#">Читать дальше</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img" style="--photo: url('images/news3.jpg')"></div>
+          <div class="card-body">
+            <p class="card-date">00 месяца 0000</p>
+            <h3>Заголовок новости</h3>
+            <p>Короткий текст новости в одно-два предложения.</p>
+            <a class="link-quiet" href="#">Читать дальше</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ВЕСТИ ВАТИКАНА ============ -->
+  <section id="vatican" class="block">
+    <div class="wrap">
+      <h2>Вести Ватикана</h2>
+      <!-- ✏️ Пока ссылки вписаны вручную. Позже сюда автоматически придёт лента из RSS (сделаем отдельным шагом) -->
+      <ul class="headlines">
+        <li><a href="#" target="_blank" rel="noopener">Заголовок новости Ватикана</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Заголовок новости Ватикана</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Заголовок новости Ватикана</a></li>
+      </ul>
+      <a class="link-quiet" href="#" target="_blank" rel="noopener">Все новости на Vatican News</a>
+    </div>
+  </section>
+
+  <!-- ============ О НАС (раскрывающиеся блоки) ============ -->
+  <section id="about" class="block block-alt">
+    <div class="wrap">
+      <h2>О нас</h2>
+      <!-- ✏️ каждый раскрывающийся блок = <details>. Заголовок в <summary>, текст ниже. Копируй, чтобы добавить -->
+      <details class="fold">
+        <summary>Наша миссия</summary>
+        <div class="fold-body"><p>Текст о миссии прихода.</p></div>
+      </details>
+      <details class="fold">
+        <summary>Редемптористы</summary>
+        <div class="fold-body"><p>Текст о редемптористах.</p></div>
+      </details>
+      <details class="fold">
+        <summary>История прихода</summary>
+        <div class="fold-body"><p>Текст об истории прихода.</p></div>
+      </details>
+      <details class="fold">
+        <summary>Таинства</summary>
+        <div class="fold-body"><p>Как подготовиться к крещению, первому причастию, венчанию.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ КОНТАКТЫ ============ -->
+  <section id="contacts" class="block">
+    <div class="wrap contacts">
+      <div>
+        <h2>Контакты</h2>
+        <!-- ✏️ данные прихода -->
+        <p><strong>Адрес</strong><br>улица, дом, город</p>
+        <p><strong>Телефон</strong><br>+7 000 000 00 00</p>
+        <p><strong>Почта</strong><br>mail@example.com</p>
+        <p><strong>Настоятель</strong><br>о. Имя Фамилия</p>
+      </div>
+      <!-- ✏️ КАРТА: на Google Картах найди храм → Поделиться → Встраивание карт → скопируй <iframe> и вставь вместо div -->
+      <div class="map-slot">Здесь будет карта</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© Приход святой Троицы</p><!-- ✏️ -->
+  <!-- ✏️ соцсети: впиши адреса -->
+  <p><a href="#">Telegram</a> · <a href="#">Instagram</a> · <a href="#">YouTube</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
