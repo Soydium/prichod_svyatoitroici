@@ -1,0 +1,93 @@
+media:
+  input: images
+  output: /images
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+
+content:
+  - name: news
+    label: Новости прихода
+    type: file
+    path: data/news.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Служебный номер (не менять)
+        type: uuid
+        options:
+          editable: false
+          generate: false
+      - name: title
+        label: Заголовок
+        type: string
+        required: true
+      - name: date
+        label: Дата
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: summary
+        label: Короткий анонс (1-2 предложения, показывается на главной)
+        type: text
+        options:
+          maxlength: 250
+      - name: image
+        label: Фото (необязательно)
+        type: image
+      - name: body
+        label: Полный текст (абзацы разделяй пустой строкой)
+        type: text
+
+  - name: reflections
+    label: Слово дня — размышления священника
+    type: file
+    path: data/reflections.json
+    format: json
+    list: true
+    fields:
+      - name: date
+        label: Дата, к которой относится запись
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: ref
+        label: Отрывок на этот день (например, Ин 3:16). Можно оставить пустым
+        type: string
+      - name: text
+        label: Размышление
+        type: text
+      - name: author
+        label: Подпись (например, о. Имя)
+        type: string
+
+  - name: schedule
+    label: Расписание богослужений
+    type: file
+    path: data/schedule.json
+    format: json
+    list: true
+    fields:
+      - name: day
+        label: День (Воскресенье, Будни, Суббота…)
+        type: string
+      - name: time
+        label: Время (10:00)
+        type: string
+      - name: service
+        label: Служба (Святая Месса, Исповедь…)
+        type: string
+
+  - name: words
+    label: Список отрывков для «слова дня»
+    type: file
+    path: data/words.json
+    format: json
+    list: true
+    fields:
+      - name: ref
+        label: Отрывок (Ин 3:16)
+        type: string
+      - name: text
+        label: Текст (можно пусто)
+        type: text

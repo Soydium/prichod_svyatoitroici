@@ -173,3 +173,10 @@ p { margin: 0 0 1em; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ---------- служебные тексты и страница новости ---------- */
+.empty { color: var(--ink-soft); font-style: italic; }
+.schedule li.empty { display: block; }
+.article { max-width: 720px; padding-top: 40px; padding-bottom: 16px; }
+.article-title { font-size: clamp(2rem, 6vw, 2.8rem); }
+.article-img { width: 100%; height: auto; border-radius: var(--radius); margin: 8px 0 20px; }

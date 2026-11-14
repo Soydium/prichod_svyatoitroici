@@ -18,7 +18,8 @@
      Ищи пометки ✏️ — там то, что нужно менять.
      Фото кладёшь в папку images/ и пишешь имя файла.
      Цвета и шрифты — в начале файла style.css.
-     Слово дня и размышления — в файле script.js.
+     Расписание, новости, слово дня и размышления — в папке data/
+     (их правит священник через админку, подробности в инструкции).
      ==================================================== -->
 
 <!-- ============ ШАПКА ============ -->
@@ -88,11 +89,7 @@
   <section id="schedule" class="block">
     <div class="wrap">
       <h2>Богослужения</h2>
-      <ul class="schedule">
-        <!-- ✏️ строка = одна служба. Копируй <li>…</li> чтобы добавить, удаляй чтобы убрать -->
-        <li><span class="when">Воскресенье</span><span class="time">11:00</span><span class="what">Святая Месса</span></li>
-        <li><span class="when">Будни</span><span class="time">18:00</span><span class="what">Святая Месса</span></li>
-      </ul>
+      <ul class="schedule" id="schedule-list"><li class="empty">Загрузка расписания…</li></ul>
 
       <!-- ✏️ КАЛЕНДАРЬ: сюда вставляется код встраивания из Google Календаря
            (Настройки календаря → Интеграция календаря → Код для встраивания).
@@ -105,38 +102,7 @@
   <section id="news" class="block block-alt">
     <div class="wrap">
       <h2>Новости прихода</h2>
-      <div class="cards">
-        <!-- ✏️ карточка новости. Копируй целиком <article>…</article>, чтобы добавить новую -->
-        <article class="card">
-          <div class="card-img" style="--photo: url('images/news1.jpg')"></div><!-- ✏️ фото: images/news1.jpg -->
-          <div class="card-body">
-            <p class="card-date">00 месяца 0000</p>
-            <h3>Заголовок новости</h3>
-            <p>Короткий текст новости в одно-два предложения.</p>
-            <a class="link-quiet" href="#">Читать дальше</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img" style="--photo: url('images/news2.jpg')"></div>
-          <div class="card-body">
-            <p class="card-date">00 месяца 0000</p>
-            <h3>Заголовок новости</h3>
-            <p>Короткий текст новости в одно-два предложения.</p>
-            <a class="link-quiet" href="#">Читать дальше</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img" style="--photo: url('images/news3.jpg')"></div>
-          <div class="card-body">
-            <p class="card-date">00 месяца 0000</p>
-            <h3>Заголовок новости</h3>
-            <p>Короткий текст новости в одно-два предложения.</p>
-            <a class="link-quiet" href="#">Читать дальше</a>
-          </div>
-        </article>
-      </div>
+      <div class="cards" id="news-list"><p class="empty">Загрузка новостей…</p></div>
     </div>
   </section>
 
@@ -169,10 +135,7 @@
       </details>
       <details class="fold">
         <summary>История прихода</summary>
-        <div class="fold-body"><p>В конце XIX в. в Петропавловске проживало около 300 католиков (первый священник — И. Райнец). С 1902 по 1910 г. службы шли в арендованной часовне.
-        В 1908 г. верующие получили разрешение на строительство храма, а в мае 1909 г. епископ Ян Цепляк освятил его краеугольный камень. Строительный комитет (председатель Е. Клольковский) во главе с крупными меценатами (Гецевич, Потасевич, ТД «Поклевский-Козелл») собрал средства, и к 1911 г. церковь Святейшего Сердца Иисуса была построена и действовала (священник И. Сенвайтис). К 1912 г. число католиков превысило 6 тыс. человек.
-        После 1917 г. костёл национализировали: в 1920-х гг. разобрали башню под склад, а в 1930-х гг. перестроили здание под жилье для руководства обкома партии.
-        В декабре 1991 г. зарегистрирован приход «Святой Троицы». Не добившись возврата старого здания, верующие построили в 1994–1997 гг. новый Храм Божьего Милосердия (освящен в 2000 г., с 2012 г. — Святилище Божьего Милосердия).</p></div>
+        <div class="fold-body"><p>Текст об истории прихода.</p></div>
       </details>
       <details class="fold">
         <summary>Таинства</summary>
@@ -187,13 +150,13 @@
       <div>
         <h2>Контакты</h2>
         <!-- ✏️ данные прихода -->
-        <p><strong>Адрес</strong><br>ул. Жамбыла Жабаева 198, Петропавловск 150000</p>
-        <p><strong>Телефон</strong><br>+77152333766</p>
+        <p><strong>Адрес</strong><br>улица, дом, город</p>
+        <p><strong>Телефон</strong><br>+7 000 000 00 00</p>
         <p><strong>Почта</strong><br>mail@example.com</p>
-        <p><strong>Настоятель</strong><br>о. Пётр Лахета CSsR</p>
+        <p><strong>Настоятель</strong><br>о. Имя Фамилия</p>
       </div>
       <!-- ✏️ КАРТА: на Google Картах найди храм → Поделиться → Встраивание карт → скопируй <iframe> и вставь вместо div -->
-      <div class="map-slot"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d711.361513503412!2d69.14936726860068!3d54.87683800076238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43b23a4cf535a301%3A0x36b0eb325f158c81!2z0JrQvtGB0YLRkdC7INCh0LLRj9GC0L7QuSDQotGA0L7QuNGG0Ys!5e1!3m2!1sru!2skz!4v1793726234527!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <div class="map-slot">Здесь будет карта</div>
     </div>
   </section>
 
